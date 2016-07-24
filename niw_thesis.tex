@@ -1,0 +1,373 @@
+% Root File for a UC Dissertation / Thesis
+% UCD thesis class: c/o Shwaine <shwaine@shwaine.com>
+%
+% modified by Dylan Beaudette, 2006,2010
+% modified  and source uploaded to github by Alex Mandel, 2014
+% Source code available at http://github.com/wildintellect/ucdthesis
+% \documentclass[11pt,draft]{ucdthesis}
+% \documentclass[10pt,twoside,final]{ucdthesis}
+% \documentclass[10pt,twoside,draft]{ucdthesis}
+% \documentclass[10pt,oneside,final]{ucdthesis}
+%  
+% this is the version that grad studies wants
+\documentclass[11pt,oneside,final]{ucdthesis}
+
+% when we are giving people drafts, use more of the page:
+% \usepackage{fullpage} %%  optional? not needed?
+% \usepackage[letterpaper,left=0.75in,right=0.75in,top=1.25in,bottom=0.5in]{geometry}
+% 
+% 
+\usepackage[letterpaper,left=1in,right=1in,top=1.5in,bottom=0.75in]{geometry} 
+%  
+
+
+\usepackage{tikz} 
+% Turn on single spacing with \ssp.
+% Turn on double spacing with \dsp.
+% By default, your dissertation is double spaced, as is required by UCD.
+
+% spacing in figures and tables and their captions can be
+% changed here (\ssp for single-space, empty for same as surrounding
+% text); for this to work, the command \figsp has to be included
+% in every figure and table right after the \begin{figure}
+% \def\figsp{\ssp}
+%\def\figsp{}
+
+\usepackage[toc]{appendix} %[toc, page=separate page with just "Appendices" written]
+% \usepackage{appendix}
+
+% useful for drafts
+% line numbers: (doesn't always work well with many math environments)
+% http://www.ctan.org/tex-archive/help/Catalogue/entries/lineno.html
+%
+% \usepackage[pagewise,mathlines]{lineno}
+% \linenumbers  %% draft only
+ 
+% SVN integration 
+% \usepackage{svnkw}
+
+% customized headers 
+% http://www.ctan.org/tex-archive/help/Catalogue/entries/fancyhdr.html
+% \usepackage{fancyhdr}
+% \usepackage{fullpage}
+
+% a better verbatim environment: c/o Pete Dirac
+% use like this:
+%   \begin{Verbatim}[fontsize=8]
+%       foobar
+%    \end{Verbatim}
+% \usepackage{fancyvrb}
+  
+% Using mathtools: more flexible math support  \usepackage{amsmath}
+\usepackage{mathtools} 
+
+% Font options
+% \usepackage{amsfonts} %% for mathbb{}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+
+
+%  si unit and spacing and table formatting:
+ \usepackage[separate-uncertainty=true]{siunitx} 
+%  \usepackage[version-1-compatibility]{siunitx}
+%  [separate-uncertainty=true,multi-part-units=single,alsoload=hep,alsoload=astro]
+%  [alsoload=hep,alsoload=astro] OR just define units (newcommands.tex)
+%  or version-2 of sinuitx
+% \usepackage{siunitx}
+%   % \sisetup{per-mode=fraction,fraction-function=\sfrac,alsoload=hep,alsoload=astro}
+\sisetup{per-mode=reciprocal-positive-first} %  per-mode=fraction % per-mode=power}
+\sisetup{multi-part-units=single} %
+%   % table and unit spacing
+\sisetup{number-unit-product=\,} %\, is default
+
+\DeclareSIUnit{\molecules}{molecules}
+
+ 
+
+% \usepackage[section]{placeins}%prevent float from passing sections or %/FloatBarrier
+% \usepackage{accents}%anti(nu) custom overline/bar
+ 
+%need this for \includegraphics{} % called by tikx apparently 
+% \usepackage[pdftex]{graphicx} 
+
+\usepackage{subcaption}  %% prefered over subfigure  
+
+% \usepackage[]{pdfpages} % If needed
+% more flexible definition of table environments
+
+% Table formatting options
+%%\usepackage{ctable}
+\usepackage{booktabs}
+
+% Allow some pages to be landscape for long tables
+%% \usepackage{lscape} {pfflscape}{lscape}
+% \usepackage{pdflscape}
+
+
+  
+
+
+%enable the listings package specifically for including programming code
+% \usepackage{listings} f
+% %Special hack to make code listings not break pages, fyi they must be short then
+% \usepackage{float}
+% \floatstyle{plain} % optionally change the style of the new float
+% \newfloat{Code}{H}{myc}
+   
+
+ 
+  
+% THis prevents te citation count from starting in TOC (eg. from the list of figures) 
+\usepackage{notoccite} % 
+
+
+ 
+%% SUGGESTED WITH UCDTHESIS original
+% \usepackage[sorting=none,natbib=true,maxnames=4,style=numeric]{biblatex}
+%%
+%%  
+%% hyperref possibly has to be second-to-last package
+\usepackage[sort&compress,numbers]{natbib}
+% \bibliographystyle{apsrev4-1} %% I include this later in bibliography command
+\usepackage{doi} % apsrev4-1 we'll see if it works
+
+% % %% WITH BIBLATEX
+% %\usepackage[sorting=nyt,natbib=true,citestyle=authoryear,bibstyle=authoryear,maxnames=3,refsection
+% %=chapter]{biblatex}
+% % \usepackage{chapterbib} % incompatible with biblatex
+% % % % % % % % % % % % % % % % \bibliography{bibdir/sources}{}
+% \addbibresource{bibdir/Dsources.bib} % % % bib2.bib}
+%     \bibliography{bibdir/sources.bib}
+% \defbibheading{bibliography}{ %
+%     \chapter*{Bibiography} % '*" so no "AP
+%     } 
+% % bibliography can be single-spaced for UC thesis format
+% \appto{\bibsetup}{\ssp} 
+% \AtEveryBibitem{\clearfield{month}} %Cleaner references without month being printed
+          
+%make the index
+% \usepackage{makeidx}
+% \makeindex
+
+% % custom colors
+% \usepackage{color}
+% % make a color for comments
+% \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}
+
+% customized captions with bold label and small, italic text
+% table captions are located above tables
+% http://www.kronto.org/thesis/tips/custom-captions.html
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+% does this have any effect?
+%\usepackage{caption}
+% \renewcommand{\captionfont}{\small\itshape}
+%
+ 
+
+%% More options for 
+% complicated tables, math environments 
+\usepackage{multirow,array,bigdelim}
+% url formatting
+\usepackage{url}
+% upright greek ($\upmu$ for micro )
+\usepackage[Symbolsmallscale]{upgreek}
+% \usepackage{cancel} 
+% \usepackage{rotating}
+% \usepackage{longtable}
+% \usepackage{afterpage}
+
+% \usepackage{notoccite}
+
+% hypenation inside texttt
+% \usepackage[htt]{hyphenat}  %%http://tex.stackexchange.com/questions/44361/how-to-automatically-hyphenate-within-texttt 
+
+\usepackage{microtype}    % some automatic adjustment to fitting words in a line
+
+
+
+% %
+% %  fit more material on the page:
+% %
+%
+% reset some float-controlling parameters
+\renewcommand{\floatpagefraction}{0.8}	% require fuller float pages
+
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+
+
+% PDF formatting options, indexing, hyperlinking, with control over link style
+%Set PDF Metadata 
+\usepackage{xcolor}
+%%% % PDF links --- > breaks with some bibliography entries
+%%% % \usepackage{hyperref}
+\usepackage[]{hyperref} %hidelinks
+% \usepackage[pdftex,
+%             pdfauthor=Nicholas Walsh,
+%             pdftitle=Dissertation,
+%             pdfsubject=Dissertation,
+%             pdfkeywords={neutrino, physics, UCDavis, argon, cross section},
+%             %pdfproducer={Latex with hyperref, or other system},
+%             %pdfcreator={pdflatex, or other tool}
+%             ]{hyperref}
+\hypersetup{ 
+%       driver=pdftex,
+%      colorlinks=false,%true,
+     colorlinks,
+     linkcolor= {red!50!black},
+     citecolor= {blue!50!black},
+     urlcolor = {blue!70!black},
+     filecolor= {magenta!50!black}
+          %% ---OR---
+%      urlcolor=blue,
+%      linkcolor=blue,          % color of internal links
+%      citecolor=blue,        % color of links to bibliography
+%      filecolor=magenta
+}
+
+%Use an additional package to make bookmarks point to the top to tables, figures and listings
+%%niw commented out
+%%\usepackage[all]{hypcap}
+
+%Alex's customizations
+% \usepackage{indentfirst} %Indents first paragraph of chapter
+% \usepackage{datatool} %Allows import of csv and other data-tables
+% \usepackage{varwidth}
+% \usepackage{color}
+
+
+
+
+% \usepackage[doublespacing]{setspace} [tikz]
+% \newcommand{\singlespacing}{\ssp}
+% \newcommand{\doublespacing}{\dsp}   
+ 
+% optional definition of which paths to look for graphics included
+% \graphicspath{{/path/to/dir/with/plots/}{/path/to/another/dir/}}
+
+
+% % For glossaries and abbreviation if used for automatic definitions 
+\usepackage[nonumberlist,hyperfirst=false]{glossaries} %[nogroupskip]
+% % \glsdisablehyper  %% REMOVE gls links 
+\glossarystyle{long}
+
+
+%% input shortcuts and new/renew commands 
+\input{commands} % commands.tex
+
+
+\loadglsentries{glossary} % glossary.tex
+\renewcommand*{\acronymname}{List of Abbreviations and Symbols} % rename title
+\renewcommand*{\glspostdescription}{}                           % remove dot at the end of description
+\makeglossaries
+%%% !!! the title_and_frontmatter also includes an optional "Abbreviations Section to remove if you don't want/need !!!
+
+
+% \AtBeginEnvironment{longtable}{\ssp}
+
+
+%% Something for the bibliography--I don't remember why
+%% 
+% % tex/latex/natbib/natbib.sty:   \renewcommand\newblock{\par}%
+% % tex/latex/natbib/natbib.sty:   \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+%  \providecommand\newblock{\par}%
+%  \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+ \providecommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+% %  \def\newblock{\ }% from revtex4.cls but not defined in ucdthesis.cls
+% %  \renewcommand*{\refname}{Bibliography}
+% %  \renewcommand{\bibname}{Bibliography}
+
+
+
+
+
+%%% Document Portion:
+\begin{document}
+ 
+%% Title, Front Matter, and Abstract:
+\input{title_and_frontmatter}     
+ 
+% the chapters
+ 
+% % set page style:
+% % make the chapter and section smaller, chapter and section numbers are removed
+% % fancyplain will keep the page numbers at the bottom of all pages
+% \pagestyle{fancyplain} %Note the \fancyplain command !!!
+% \renewcommand{\chaptermark}[1]{\markboth{\small{#1}}{}}
+% \renewcommand{\sectionmark}[1]{\markright{\small{#1}}{}}
+ 
+\dsp % double spacing incase the previous front matter contents carries over
+ 
+\input{chapter1}
+\input{chapter2}  
+
+
+% %% appendices
+% %% there are several sections, that don't really fit into the main chapters 
+% %%
+%   % one way to include appendices:
+% \part*{\addcontentsline{toc}{part}{Appendices}Appendices}
+% \appendix
+%   % or use \begin{appendix} \input{appendix_contents} \end{appendix}
+% % ensure a new page after abbreviations if needed:
+ {\clearpage
+  \phantomsection % for hyperref
+  \addcontentsline{toc}{chapter}{Appendices}
+  \appendix %sets environment 
+  \input{appendix1} % input appendix text
+  %\input{appendix2} % input appendix text
+ }
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%   bibliography options   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This works to make a physics style (RevTex4) formatting, it may also work
+%%  for other styles but is not test
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  
+%   %% USES : \usepackage[sorting=none,natbib=true,style=numeric]{biblatex}
+% % note that the 'plainnat' style does not allow URL's in the bibtex entry
+% %
+% % some ideas here:
+% % http://bib2web.djvuzone.org/bibtex.html
+% % 
+%   % reset the page style  
+%   \pagestyle{plain}
+%    
+%   % To enable this it will need to be added to TOC so it's not in a chapter
+% \begin{thebibliography}
+% %   \printbibliography 
+% \end{bibliography}
+%   % \printbibliography[heading=bibliography]
+%%
+%%
+% % \part*{\addcontentsline{toc}{part}{Bibliography}Bibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% RevTex style   (no need for a biblatex package)
+% %  
+% %   
+% \begin{ssp}
+% \nocite{apsrev41Control}
+\clearpage  
+% \cleardoublepage
+  {\ssp
+\phantomsection % section marker for hyperref
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apsrev4-1} % APS style 
+\bibliographystyle{unsrt}   
+  \bibliography{./biblio}{} 
+  } 
+%   
+% %   \bibliographystyle{apsrev4-1} % unsrt} % ieeetr} %unsrt %plain
+%   %%abbrv.bst  acm.bst  alpha.bst  apalike.bst  ieeetr.bst  plain.bst  siam.bst  unsrt.bst
+% \end{ssp}
+% % } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+\end{document}

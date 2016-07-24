@@ -1,0 +1,129 @@
+% Declarations for Front Matter
+
+% MS Thesis = 0, Phd Dissertation = 1
+\isdissertation{1}
+
+% electronic submission? Paper only = 0, Electronic = 1
+\iselectronic{1}
+
+\title{The Title Here}
+%%
+%% 
+%%
+% \title{A Measurement of the \texorpdfstring{${}^{40}$Ar$+$n$\to\!{}^{40}$Cl$+$p}{40Ar + n -> 40Cl + p} Reaction Cross Section up to \texorpdfstring{50\thinspace MeV}{50 MeV}}
+\author{Author}
+
+% Choices are September, December, March, June
+% \degreemonth{March}
+\degreemonth{June}
+\degreeyear{2016}
+%More examples DOCTOR OF PHILOSOPHY/ MASTERS OF SCIENCE
+\degree{Doctor of Philosophy}
+
+\chair{xxx}
+\othermembers{abc, xyz} %comma separated list of committee not including chair
+\numberofmembers{3} % size of committee
+
+\prevdegrees{B.S.~(University of California, Davis) 2010}
+
+%Your Graduate Group
+\field{xxx}
+\campus{Davis}
+
+
+% add the abstract here
+\input{./abstract} % relative to this dire ./frontmatter/ ? 
+
+% % Not required for electronic submission,
+% %  you will need to print your other abstract page 2x and hand them in.
+% % Here is the first, external, abstract.
+% \begin{abstract}
+%           \myabstract
+%          % \abstractsignature
+% \end{abstract}
+
+\begin{frontmatter}
+\maketitle
+
+% % A copyright page is optional. If you have one, it must immediately
+% % follow the title page. For more information about the copyright page
+% % see the UCD's Office of Graduate Studies web site.
+% % \copyrightpage
+% % % Acknowledgments (optional)
+% % \begin{acknowledgments}
+% % \input{./frontmatter/acknowledgments}
+% % %  put acknowledgments here.
+% % \end{acknowledgments}
+
+
+%     \newpage
+%     \begin{inlineabstract}
+%               %Only enable small if you're trying to make it fit.             
+%               %\begin{small}
+%               \myabstract
+%               %\end{small}              
+%     \end{inlineabstract}
+% 
+%     % % % Acknowledgments (optional)
+% \begin{acknowledgments}
+% \input{./frontmatter/acknowledgments}
+% %  put acknowledgments here.
+% \end{acknowledgments}
+    % %
+
+% dedication (optional), remove comment markers to use 
+%\begin{dedication}
+%\null\vfil
+%{\large
+%\begin{center}
+%xxxx
+%\end{center}}
+%\vfil\null
+%\end{dedication}
+    
+  \tableofcontents
+  \listoffigures 
+  \listoftables 
+
+    
+   % % %   Abbreviations OPTIONAL
+   % % %   (may need \let\cleardoublepage\clearpage prior to this)
+   % % %   I still get extra spacing at the last entry in the Abbreviations,  
+  \begin{abbreviations}  
+    {\ssp \phantomsection % marker for hyperref
+      \label{sec:abbrevs} 
+      \addcontentsline{toc}{chapter}{\acronymname}
+    \printglossary[style=index,type=\acronymtype,title=\acronymname] 
+    % for other options see package documentation  
+    %  
+    }    
+  \end{abbreviations} 
+ 
+
+ 
+
+
+% Here is the second, internal, abstract.
+% Update: Melissa Danforth 2006
+% Inline abstract is now part of front matter according to coordinator
+    \newpage
+    \begin{inlineabstract}
+        %Only enable small if you're trying to make it fit.     
+        %\begin{small}
+        \myabstract
+        %\end{small} 
+    \end{inlineabstract}
+
+% % %Acknowledgments (optional)
+% \begin{acknowledgments}
+% \input{./acknowledgments}
+% %  put acknowledgments here.
+% \end{acknowledgments}
+
+% %Preface (optional)
+% \chapter*{Preface}
+% \addcontentsline{toc}{chapter}{Preface}
+% \input{./preface}
+
+
+\end{frontmatter}
